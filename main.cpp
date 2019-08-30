@@ -1,18 +1,17 @@
 #include <bits/stdc++.h>
 
 int main() {
-    int numberOfPermittedInputs = 0, number = 0, flipOperation = 0;
+    int numberOfPermittedInputs = 0, arr[1000];
 
     while (std::cin >> numberOfPermittedInputs) {
-        int arr[numberOfPermittedInputs];
         for (int i = 0; i < numberOfPermittedInputs; ++i) {
-            std::cin >> number;
-            arr[i] = number;
+            std::cin >> arr[i];
         }
-        for (int j = 1; j < numberOfPermittedInputs; ++j) {
-            for (int i = 0; i < j; ++i) {
-                if (arr[i] > arr[j]) {
-                    ++flipOperation;
+        int flipOperation = 0;
+        for (int i = 1; i < numberOfPermittedInputs; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (arr[j] > arr[i]) {
+                    flipOperation = flipOperation + 1;
                 }
             }
         }
